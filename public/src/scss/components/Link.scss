@@ -1,0 +1,13 @@
+.Link {
+    transition: 0.15s color, border-bottom;
+
+    @include on-mouse-hover {
+        border-bottom-color: $color_main;
+        color: $color_main;
+    }
+
+    @include on-active {
+        border-bottom-color: $color_main;
+        color: $color_main--on-active;
+    }
+}

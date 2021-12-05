@@ -1,0 +1,77 @@
+.Main {
+    @include margin-lr(auto);
+    width: 40rem;
+
+    &__tabs {
+        position: relative;
+    }
+
+    &__Tab {
+        position: relative;
+        width: 100%;
+        transition-property: opacity, transform, visibility;
+        visibility: visible;
+
+        &--form {
+            padding-top: 10rem;  // Margin will collapse, so padding is used
+            transition-duration: 0.3s;
+        }
+
+        &--thanks {
+            transition-duration: 0.6s;
+        }
+
+        &--hiddenInLeft, &--hiddenInRight {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &--hiddenInLeft {
+            transform: translateX(-0.7rem);
+        }
+
+        &--hiddenInRight {
+            transform: translateX(0.5rem);
+        }
+
+        &--disabled {
+            display: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            border-bottom: 1px solid $color_border;
+            width: 100%;
+        }
+    }
+
+    &__Socials {
+        @include flex-centring;
+        margin-top: 5rem;
+    }
+
+
+    @include media-max-tablet {
+        padding: 3rem 2rem;
+        min-width: 30rem;
+        max-width: 36rem;
+        width: 90%;
+        background: linear-gradient(180deg, #fff 0%, $color_light 100%);
+
+        &__Tab {
+
+            &--form {
+                padding-top: 0;
+            }
+        }
+
+        &__Socials {
+            margin-top: 2rem;
+        }
+    }
+}

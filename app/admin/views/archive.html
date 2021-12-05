@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Admin | Subscribers</title>
+   <link rel="icon" href="/public/static/img/logo-squared.svg">
+   <link rel="stylesheet" href="/app/admin/views/styles.css">
+   <script src="/app/admin/views/delete.js" defer></script>
+   <script src="/app/admin/views/download.js" defer></script>
+</head>
+<body>
+   <div class="Wrapper">
+      <form
+         class="Wrapper__Filter Filter"
+         action="{{ filter_form.action }}"
+         method="{{ filter_form.method }}"
+      >
+         <div class="Filter__settings">
+            <div class="Filter__Block SearchBlock">
+               <h4 class="FilterBlock__title">
+                  Keyword
+               </h4>
+               <input
+                  class="SearchBlock__input"
+                  type="text"
+                  name="{{ filter.keyword.html_name }}"
+                  value="{{ filter.keyword.html_value ?: '' }}"
+                  placeholder="Search..."
+               >
+            </div>
+            <div class="Filter__Block SortBlock">
+               <h4 class="FilterBlock__title">
+                  Sort by
+               </h4>
+               <select
+                  class="SortBlock__select"
+                  name="{{ filter.sorting[0].html_name }}"
+               >
+
+                  {% for option in filter.sorting %}
+                     <option
+                        class="SortBlock__option" {{ option.is_active ? 'selected' : '' }}
+                        value="{{ option.html_value }}"
+                     >
+                        {{ option.content|capitalize }}
+                     </option>
+                  {% endfor %}
+
+               </select>
+            </div>
+            <div class="Filter__Block ProvidersBlock">
+               <h4 class="FilterBlock__title">
+                  Providers
+               </h4>
+               <ul class="ProvidersBlock__list">
+
+                  {% for provider in filter.providers %}
+                     <li class="ProvidersBlock__item">
+                        <label>
+                           <input
+                              class="ProvidersBlock__checkbox"
+                              name="{{ provider.html_name }}"
+                              value="{{ provider.html_value }}"
+                              type="checkbox"
+                              {{ provider.is_checked ? 'checked' : '' }}
+                           >
+                           <span class="ProvidersBlock__name">
+                              {{ provider.name|capitalize }}
+                           </span>
+                        </label>
+                     </li>
+                  {% else %}
+                     <li class="ProvidersBlock__item">
+                        No providers
+                     </li>
+                  {% endfor %}
+
+               </ul>
+            </div>
+         </div>
+         <div class="Filter__footer">
+            <button class="Filter__submit">
+               Search
+            </button>
+         </div>
+      </form>
+
+      <div class="Wrapper__Content Content">
+         <div class="Content__Body">
+            <table class="Content__Table Table">
+               <tr class="Table__headingRow">
+                  <th class="Table__headingCell Table__headingCell--email">
+                     Email
+                  </th>
+                  <th class="Table__headingCell Table__headingCell--date">
+                     Date
+                  </th>
+                  <th class="Table__headingCell Table__headingCell--select">
+                     Select
+                  </th>
+               </tr>
+
+               {% for subscriber in subscribers %}
+                  <tr class="Table__row">
+                     <td class="Table__cell">
+                        {{ subscriber.email }}
+                     </td>
+                     <td class="Table__cell">
+                        {{ subscriber.date|date("H:i | m.d.y") }}
+                     </td>
+                     <td class="Table__cell Table__cell--select">
+                        <label>
+                           <input
+                              type="checkbox"
+                              class="js-subscriber-checkbox"
+                              name="{{subscriber.html_name}}"
+                              value="{{subscriber.html_value}}"
+                              {{ subscriber.is_checked ? 'checked' : '' }}
+                           >
+                        </label>
+                     </td>
+                  </tr>
+               {% endfor %}
+
+            </table>
+
+            {% if subscribers is empty %}
+               <div class="EmptyResult">
+                  No result
+               </div>
+            {% endif %}
+
+            {% if subscribers is not empty %}
+               <div class="Content__Controlls Controlls">
+                  <div class="Controlls__item">
+                     <button
+                        id="download-button"
+                        class="Controlls__button Controlls__button--download"
+                        data-uri="{{ csv_table.uri }}"
+                        data-filename="{{ csv_table.file_name }}"
+                     >
+                        Download
+                     </button>
+                  </div>
+                  <div class="Controlls__item">
+                     <button
+                        id="delete-button"
+                        class="Controlls__button Controlls__button--delete"
+                     >
+                        Delete
+                     </button>
+                  </div>
+               </div>
+            {% endif %}
+
+         </div>
+         <div class="Content__Pagination">
+            <ul class="Pagination">
+
+               {% if pagination.has_first %}
+                  <li class="Pagination__item Pagination__item--first">
+                     <a class="Pagination__link" href="{{ pagination.first.link }}">
+                        First
+                     </a>
+                  </li>
+               {% endif %}
+
+               {% for item in pagination.list %}
+
+                  <li class="Pagination__item">
+
+                     {% if item.is_current %}
+                        <span class="Pagination__currSpan">
+                           {{ item.number }}
+                        </span>
+                     {% else %}
+                        <a class="Pagination__link" href="{{ item.link }}">
+                           {{ item.number }}
+                        </a>
+                     {% endif %}
+
+                  </li>
+
+               {% endfor %}
+
+               {% if pagination.has_last %}
+                  <li class="Pagination__item Pagination__item--last">
+                     <a class="Pagination__link" href="{{ pagination.last.link }}">
+                        Last
+                     </a>
+                  </li>
+               {% endif %}
+
+            </ul>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+@mixin media-min-desktop {
+
+    @media (min-width: 1024.001px) {
+        @content;
+    }
+}
+
+@mixin media-max-tablet {
+
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin media-max-mobile {
+
+    @media (max-width: 641px) {
+        @content;
+    }
+}

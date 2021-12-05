@@ -1,0 +1,31 @@
+.Navbar {
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+
+        &:not(:last-child) {
+            margin-right: 2.4rem;
+        }
+    }
+
+    &__link {
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.2rem;
+        font-size: $fontsz_clickable;
+        font-size: var(--fsz_clickable);
+    }
+
+
+    @include media-max-tablet {
+
+        &__item {
+
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.Checkbox {
+    $base: &;
+
+    @include size(2.6rem);
+
+    &__input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+
+        &:checked + #{ $base }__checkmark {
+            border-color: $color_main;
+            background-color: $color_main;
+            transition: none;
+
+            #{ $base }__ico {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__checkmark {
+        @include size(100%);
+        @include flex-centring;
+        border: 0.1rem solid $color_border;
+        border-radius: 0.3rem;
+        background-color: #fff;
+        transition: 0.15s border-color;
+        cursor: pointer;
+
+        &--error {
+            border-color: $color_error !important;
+        }
+    }
+
+    &__ico {
+        color: #fff;
+        font-size: 1rem;
+        opacity: 0;
+    }
+}

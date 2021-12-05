@@ -1,0 +1,45 @@
+.Page {
+    display: flex;
+    width: 100%;
+    min-height: 90rem;
+    height: 100vh;
+
+    &__MiniPage {
+        width: 68rem;
+    }
+
+    &__bg {
+        flex-grow: 1;
+        min-width: 30rem;
+        background-image: url('/public/static/img/main-bg.png');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include media-min-desktop {
+
+            @media (max-width: 1250px) {
+                background-position: left center;
+            }
+        }
+    }
+
+
+    @include media-max-tablet {
+        position: relative;
+        min-height: 60rem;
+
+        &__MiniPage {
+            width: 100%;
+        }
+
+        &__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+}

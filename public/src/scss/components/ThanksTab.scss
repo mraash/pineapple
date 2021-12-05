@@ -1,0 +1,28 @@
+.ThanksTab {
+    padding-bottom: 3rem;
+
+    &__img {
+        height: 7rem;
+    }
+
+    &__title {
+        margin-top: 3rem;
+    }
+
+    &__text {
+        margin-top: 2rem;
+    }
+
+    @include media-max-tablet {
+        // @include d;
+        padding-bottom: 3.5rem;
+
+        &__title {
+            margin-top: 4rem;
+        }
+
+        &__text {
+            margin-top: 1rem;
+        }
+    }
+}

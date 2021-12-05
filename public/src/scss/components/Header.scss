@@ -1,0 +1,59 @@
+.Header {
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logoWr {
+        margin-right: 2rem;
+        width: 11.5rem;
+    }
+
+    &__logo {
+        display: block;
+        width: 100%;
+
+        &--mobile {
+            display: none;
+        }
+    }
+
+    &__Navbar {
+        margin-top: 1.4rem;
+    }
+
+
+    @include media-max-tablet {
+        padding: 1rem 0;
+        height: 6.6rem;
+        background-color: #fff;
+
+        &__body {
+            @include margin-lr(auto);
+            min-width: 30rem;
+            max-width: 36rem;
+            width: 90%;
+        }
+
+        &__logoWr {
+            width: 2.5rem;
+        }
+
+        &__logo {
+
+            &--desktop {
+                display: none;
+            }
+
+            &--mobile {
+                display: block;
+            }
+        }
+
+        &__Navbar {
+            margin-top: 0.8rem;
+        }
+    }
+}

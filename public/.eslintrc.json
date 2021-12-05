@@ -1,0 +1,67 @@
+{
+    "ignorePatterns": [
+        "node_modules",
+        "dist"
+    ],
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "no-multiple-empty-lines": ["error", {
+            "max": 2,
+            "maxBOF": 0,
+            "maxEOF": 0
+        }],
+        "comma-dangle": ["error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline"
+        }],
+        "brace-style": ["error", "stroustrup"],
+        "lines-between-class-members": ["error", "always", {
+            "exceptAfterSingleLine": true
+        }],
+        "space-before-function-paren": ["error", {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "never"
+        }],
+        "new-cap": "off",
+        "prefer-promise-reject-errors": "off",
+        "quote-props": "off",
+        "arrow-parens": "off",
+        "linebreak-style": "off",
+        "class-methods-use-this": "off",
+        "func-names": "off",
+        "max-classes-per-file": "off",
+        "operator-linebreak": "off",
+        "prefer-const": "off",
+        "no-console": "off",
+        "no-param-reassign": "off",
+        "no-underscore-dangle": "off",
+        "no-multi-spaces": "off",
+        "no-use-before-define": "off",
+        "no-empty": "off",
+        "no-new": "off",
+        "no-unused-vars": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off",
+        "no-plusplus": "off",
+        "prefer-arrow-callback": "off",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": "off"
+    }
+}

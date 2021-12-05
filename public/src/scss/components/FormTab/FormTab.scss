@@ -1,0 +1,42 @@
+.FormTab {
+    // @include d(purple);
+    padding-bottom: 5rem;
+
+    &__title {
+    }
+
+    &__text {
+        margin-top: 1.9rem;
+    }
+
+    &__form {
+    }
+
+    &__InputBlock {
+        margin-top: 5rem;
+    }
+
+    &__Terms {
+        margin-top: 5.3rem;
+    }
+
+
+    @include media-max-tablet {
+        padding-bottom: 2rem;
+
+        &__title {
+        }
+
+        &__text {
+            margin-top: 1rem;
+        }
+
+        &__InputBlock {
+            margin-top: 2rem;
+        }
+
+        &__Terms {
+            margin-top: 2rem;
+        }
+    }
+}

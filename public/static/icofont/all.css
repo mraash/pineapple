@@ -1,0 +1,51 @@
+@font-face {
+    font-weight: normal;
+    font-family: 'icofont';
+    font-style: normal;
+
+    font-display: block;
+    src:
+        url('/public/static/icofont/fonts/icofont.ttf?gka6db') format('truetype'),
+        url('/public/static/icofont/fonts/icofont.woff?gka6db') format('woff'),
+        url('/public/static/icofont/fonts/icofont.svg?gka6db#icofont') format('svg');
+}
+
+[class^="ico-"], [class*=" ico-"] {
+    text-transform: none;
+    line-height: 1;
+    font-weight: normal;
+
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icofont' !important;
+    font-variant: normal;
+    font-style: normal;
+    speak: never;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-checkmark::before {
+    content: "\e903";
+}
+
+.ico-arrow::before {
+    content: "\e900";
+}
+
+.ico-facebook::before {
+    content: "\e901";
+}
+
+.ico-instagram::before {
+    content: "\e902";
+}
+
+.ico-twitter::before {
+    content: "\e90a";
+}
+
+.ico-youtube::before {
+    content: "\e90b";
+}

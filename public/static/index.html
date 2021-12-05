@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Pineapple</title>
+
+   <link rel="icon" href="/public/static/img/logo-squared.svg">
+
+   <link rel="stylesheet" href="/public/static/icofont/all.css">
+   <link rel="stylesheet" href="/public/dist/css/index.bundle.css">
+   <script src="/public/dist/js/index.bundle.js" defer></script>
+</head>
+<body>
+
+   <div class="Page">
+      <div class="Page__MiniPage">
+         <div class="MiniPage">
+            <div class="MiniPage__body">
+               <div class="MiniPage__Header">
+                  <header class="Header">
+                     <div class="Header__body">
+                        <div class="Header__logoWr">
+                           <img
+                              class="Header__logo Header__logo--desktop"
+                              src="/public/static/img/logo.svg"
+                              alt="Logo"
+                           >
+                           <img
+                              class="Header__logo Header__logo--mobile"
+                              src="/public/static/img/logo-squared.svg"
+                              alt="Logo"
+                           >
+                        </div>
+                        <nav class="Header__Navbar Navbar">
+                           <ul class="Navbar__list">
+                              <li class="Navbar__item">
+                                 <a class="Navbar__link Link" href="#">About</a>
+                              </li>
+                              <li class="Navbar__item">
+                                 <a class="Navbar__link Link" href="#">How it works</a>
+                              </li>
+                              <li class="Navbar__item">
+                                 <a class="Navbar__link Link" href="#">Contact</a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </header>
+               </div>
+               <div class="MiniPage__Main">
+                  <div class="Main">
+                     <div class="Main__tabs">
+                        <div class="
+                           Main__Tab
+                           Main__Tab--form
+                           {% if nojs_form is defined %}
+                              {{ nojs_form.is_sended ? 'Main__Tab--disabled' : '' }}
+                           {% endif %}
+                        ">
+                           <div class="FormTab">
+                              <h1 class="FormTab__title Title">
+                                 Subscribe to newsletter
+                              </h1>
+                              <div class="FormTab__text Text">
+                                 Subscribe to our newsletter and get 10% discount
+                                 on pineapple glasses.
+                              </div>
+                              <form class="FormTab__form" method="{{ form_method }}">
+                                 <div class="FormTab__InputBlock">
+                                    <div class="
+                                       formTab-InputBlock
+                                       {% if nojs_form is defined %}
+                                          {{
+                                             not nojs_form.is_email_valid
+                                                ? 'formTab-InputBlock--hasInvalidEmail'
+                                                : ''
+                                          }}
+                                       {% endif %}
+                                    ">
+                                       <input
+                                          id="subscriber-email"
+                                          class="formTab-InputBlock__input"
+                                          type="text"
+                                          name="{{ inputs.email.name }}"
+                                          value="{{ inputs.email.value }}"
+                                          placeholder="Type your email address here…"
+                                       >
+                                       <button
+                                          id="submit-subscription"
+                                          class="formTab-InputBlock__submit"
+                                          type="submit"
+                                          name="{{ inputs.submit.name }}"
+                                          value="{{ inputs.submit.value }}"
+                                       >
+                                          <i class="
+                                             formTab-InputBlock__ico
+                                             ico-arrow
+                                             FontIco
+                                          "></i>
+                                       </button>
+                                    </div>
+                                 </div>
+                                 <div class="FormTab__Terms formTab-Terms">
+                                    <label class="formTab-Terms__Checkbox Checkbox">
+                                       <input
+                                          id="subscriber-terms-condition"
+                                          class="Checkbox__input"
+                                          type="checkbox"
+                                          name="{{ inputs.terms.name }}"
+                                          {{ inputs.terms.is_checked ? 'checked' : '' }}
+                                       >
+                                       <span
+                                          class="
+                                             Checkbox__checkmark
+                                             {% if nojs_form is defined %}
+                                                {{
+                                                   not nojs_form.are_terms_valid
+                                                      ? 'Checkbox__checkmark--error'
+                                                      : ''
+                                                }}
+                                             {% endif %}
+                                          "
+                                       >
+                                          <i class="
+                                             Checkbox__ico
+                                             ico-checkmark
+                                          "></i>
+                                       </span>
+                                    </label>
+                                    <span class="formTab-Terms__text">
+                                       <span class="formTab-Terms__span">
+                                          I agree to
+                                       </span>
+                                       <a class="formTab-Terms__link Link" href="#">
+                                          terms of service
+                                       </a>
+                                    </span>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+
+                        <div class="
+                           Main__Tab
+                           Main__Tab--thanks
+                           {% if nojs_form is not defined %}
+                              Main__Tab--hiddenInLeft
+                              Main__Tab--disabled
+                           {% endif %}
+                           ThanksTab
+                           {% if nojs_form is defined %}
+                              {{ nojs_form.is_sended ? '' : 'Main__Tab--disabled' }}
+                           {% endif %}
+                        ">
+                           <img
+                              class="ThanksTab__img"
+                              src="/public/static/img/success.svg"
+                              alt=""
+                           >
+                           <h2 class="ThanksTab__title Title">
+                              Thanks for subscribing!
+                           </h2>
+                           <p class="ThanksTab__text Text">
+                              You have successfully subscribed to our email listing.
+                              Checkyour email for the discount code.
+                           </p>
+                        </div>
+                     </div>
+                     <footer class="Main__Socials">
+                        <ul class="Socials">
+                           <li class="Socials__Item">
+                              <a class="socials-Item socials-Item--facebook" href="#">
+                                 <i class="
+                                    socials-Item__ico
+                                    ico-facebook
+                                    FontIco
+                                 "></i>
+                              </a>
+                           </li>
+                           <li class="Socials__Item">
+                              <a class="socials-Item socials-Item--instagram" href="#">
+                                 <i class="
+                                    socials-Item__ico
+                                    ico-instagram
+                                    FontIco
+                                 "></i>
+                              </a>
+                           </li>
+                           <li class="Socials__Item">
+                              <a class="socials-Item socials-Item--twitter" href="#">
+                                 <i class="
+                                    socials-Item__ico
+                                    ico-twitter
+                                    FontIco
+                                 "></i>
+                              </a>
+                           </li>
+                           <li class="Socials__Item">
+                              <a class="socials-Item socials-Item--youtube" href="#">
+                                 <i class="
+                                    socials-Item__ico
+                                    ico-youtube
+                                    FontIco
+                                 "></i>
+                              </a>
+                           </li>
+                        </ul>
+                     </footer>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Page__bg"></div>
+   </div>
+
+
+   <div class="
+      ErrorModal
+      {% if nojs_form is defined %}
+         {{ nojs_form.is_valid ? '' : 'ErrorModal--enabled ErrorModal--visible' }}
+      {% endif %}
+   ">
+      <span class="ErrorModal__text">
+         {% if nojs_form is defined %}
+            {{ nojs_form.error_message }}
+         {% endif %}
+      </span>
+   </div>
+
+</body>
+</html>

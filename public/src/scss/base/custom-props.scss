@@ -1,0 +1,16 @@
+:root {
+    --fsz_clickable: #{ $fontsz_clickable };
+    --fsz_title: #{ $fontsz_title };
+    --fsz_text: #{ $fontsz_text };
+    --fsz_input: #{ $fontsz_input };
+    --fsz_shortText: #{ $fontsz_shortText };
+}
+
+@include media-max-tablet {
+
+    :root {
+        --fsz_clickable: 1.4rem;
+        --fsz_title: 2.4rem;
+        --fsz_text: 1.4rem;
+    }
+}

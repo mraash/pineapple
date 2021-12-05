@@ -1,0 +1,123 @@
+.socials-Item {
+    $base: &;
+
+    @include size(4.6rem);
+    @include flex-centring;
+    border: 0.2rem solid $color_border;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-property: background-color, border-color, box-shadow;
+
+    @include on-mouse-hover {
+        box-shadow: 0 2rem 4rem 0 #1318214d;
+
+        #{ $base }__ico {
+            color: #fff;
+        }
+    }
+
+    @include on-active {
+
+        #{ $base }__ico {
+            color: #fff;
+        }
+    }
+
+    @include on-tab-focus {
+        box-shadow: 0 2rem 4rem 0 #1318214d;
+
+        #{ $base }__ico {
+            color: #fff;
+        }
+    }
+
+    &--facebook {
+        font-size: 1.6rem;
+
+        @include on-mouse-hover {
+            border-color: $color_facebook--on-hover;
+            background-color: $color_facebook--on-hover;
+        }
+
+        @include on-tab-focus {
+            border-color: $color_facebook--on-hover;
+            background-color: $color_facebook--on-hover;
+            outline: none;
+        }
+
+        @include on-active {
+            border-color: $color_facebook--on-active;
+            background-color: $color_facebook--on-active;
+        }
+    }
+
+    &--instagram {
+        font-size: 1.6rem;
+
+        @include on-mouse-hover {
+            border-color: $color_instagram--on-hover;
+            background-color: $color_instagram--on-hover;
+        }
+
+        @include on-tab-focus {
+            border-color: $color_instagram--on-hover;
+            background-color: $color_instagram--on-hover;
+            outline: none;
+        }
+
+        @include on-active {
+            border-color: $color_instagram--on-active;
+            background-color: $color_instagram--on-active;
+        }
+    }
+
+    &--twitter {
+        font-size: 1.3rem;
+
+        @include on-mouse-hover {
+            border-color: $color_twitter--on-hover;
+            background-color: $color_twitter--on-hover;
+        }
+
+        @include on-tab-focus {
+            border-color: $color_twitter--on-hover;
+            background-color: $color_twitter--on-hover;
+            outline: none;
+        }
+
+        @include on-active {
+            border-color: $color_twitter--on-active;
+            background-color: $color_twitter--on-active;
+        }
+    }
+
+    &--youtube {
+        font-size: 1.2rem;
+
+        @include on-mouse-hover {
+            border-color: $color_youtube--on-hover;
+            background-color: $color_youtube--on-hover;
+        }
+
+        @include on-tab-focus {
+            border-color: $color_youtube--on-hover;
+            background-color: $color_youtube--on-hover;
+            outline: none;
+        }
+
+        @include on-active {
+            border-color: $color_youtube--on-active;
+            background-color: $color_youtube--on-active;
+        }
+    }
+
+    &__ico {
+        font-size: inherit;
+        transition-duration: inherit;
+        transition-property: color;
+    }
+
+
+    @include media-max-tablet {
+    }
+}

@@ -1,0 +1,31 @@
+@mixin on-mouse-hover {
+
+    @include media-min-desktop {
+
+        &:hover {
+            @content;
+        }
+    }
+}
+
+
+@mixin on-active {
+
+    @media all {
+
+        &:active {
+            @content;
+        }
+    }
+}
+
+
+@mixin on-tab-focus {
+
+    @include media-min-desktop {
+
+        &:focus-visible {
+            @content;
+        }
+    }
+}

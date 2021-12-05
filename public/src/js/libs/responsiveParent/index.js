@@ -1,0 +1,1 @@
+export { activateParent } from './activateParent';

@@ -1,0 +1,23 @@
+.Socials {
+    display: inline-flex;
+
+    &__Item {
+        transition: margin-top 0.4s;
+
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        &:nth-child(2) {
+            transition-delay: 0.02s;
+        }
+
+        &:nth-child(3) {
+            transition-delay: 0.04s;
+        }
+
+        &:nth-child(4) {
+            transition-delay: 0.06s;
+        }
+    }
+}

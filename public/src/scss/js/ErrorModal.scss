@@ -1,0 +1,50 @@
+.ErrorModal {
+    $bottomOffset: 5rem;
+
+    position: fixed;
+    left: 5rem;
+    bottom: $bottomOffset;
+    z-index: 10;
+
+    display: none;
+
+    border: 1px solid #f5c6cb;
+    padding: 1.5rem 2rem 1.3rem 2rem;
+    width: 32rem;
+
+    border-radius: 0.4rem;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-size: $fontsz_text;
+    font-size: var(--fsz_text);
+
+    transform: translateY(calc(100% + $bottomOffset + 1rem));
+    transition: 0.25s transform;
+
+    &--visible {
+        transform: translateY(0);
+    }
+
+    &--enabled {
+        display: block;
+    }
+
+    &__text {
+        line-height: 1.5;
+    }
+
+
+    @include media-max-tablet {
+        $topOffset: 5rem;
+
+        top: $topOffset;
+        left: 50%;
+        bottom: auto;
+
+        transform: translate(-50%, calc(-1 * 100% - $topOffset - 1rem));
+
+        &--visible {
+            transform: translate(-50%, 0);
+        }
+    }
+}

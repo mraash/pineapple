@@ -1,0 +1,24 @@
+.formTab-Terms {
+    display: flex;
+    align-items: center;
+
+    &__Checkbox {
+        margin-right: 1.5rem;
+    }
+
+    &__text {
+        margin-top: 0.4rem;
+        font-size: $fontsz_shortText;
+        font-size: var(--fsz_shortText);
+    }
+
+    &__span {
+    }
+
+    &__link {
+        // border-bottom: 1.5px solid $color_text--dark;
+        border-radius: 0.2rem;
+        text-decoration: underline;
+        color: $color_text--dark;
+    }
+}

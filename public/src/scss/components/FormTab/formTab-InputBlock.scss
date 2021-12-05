@@ -1,0 +1,140 @@
+.formTab-InputBlock {
+    $base: &;
+
+    position: relative;
+    margin-left: -4rem;
+    padding-left: 0.3rem;  // ::before line
+    width: 66rem;
+    height: 7rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 0.4rem;
+        height: 100%;
+        background-color: $color_main;
+        transition-duration: 0.25s;
+        transition-property: background-color;
+    }
+
+    &--hasSubmitHover {
+
+        #{ $base }__input {
+            border-color: $color_main;
+            box-shadow: 0 3rem 4rem 0 #1318210f;
+        }
+    }
+
+    &--hasInvalidEmail {
+
+        &::before {
+            background-color: $color_error;
+        }
+
+        #{ $base }__input {
+            border-color: $color_border;
+        }
+    }
+
+    &--canNotSend {
+
+        #{ $base }__input {
+            border-color: $color_border;
+            box-shadow: none;
+        }
+    }
+
+    &__input {
+        @include padding-lr(4rem, 9rem);
+        @include size(100%);
+
+        display: block;
+        border: 1px solid $color_border;
+        border-left: none;
+        background-color: #fff;
+        color: $color_text--dark;
+        font-size: $fontsz_input;
+        font-size: var(--fsz_input);
+        transition: box-shadow 0.1s, border-color 0.2s;
+
+        &:focus {
+            box-shadow: 0 3rem 4rem 0 #1318210f;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $color_text;
+        }
+    }
+
+    &__submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 8rem;
+        height: 100%;
+
+        @include on-tab-focus {
+            outline: none;
+
+            #{ $base }__ico {
+                margin-right: 0;
+                color: $color_main;
+            }
+        }
+
+        @include on-mouse-hover {
+
+            #{ $base }__ico {
+                margin-right: 0;
+                color: $color_main;
+            }
+        }
+
+        @include on-active {
+
+            #{ $base }__ico {
+                margin-right: 0;
+                color: $color_main--on-active;
+            }
+        }
+
+        &--disabled {
+            opacity: 0.7;
+            cursor: default;
+
+            #{ $base }__ico {
+                margin-right: 1.5rem !important;
+                color: $color_ico !important;
+            }
+        }
+    }
+
+    &__ico {
+        margin-right: 1.5rem;
+        transition-duration: 0.25s;
+        transition-property: color, opacity, margin-right;
+    }
+
+
+    @include media-max-tablet {
+        margin-left: 0;
+        width: 100%;
+        height: 6rem;
+
+        &__input {
+            @include padding-lr(1.9rem, 5rem);
+        }
+
+        &__submit {
+            width: 5.5rem;
+        }
+
+        &__ico {
+            margin-right: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+/*
+
+    All sizing values are in rem, so you can easily scale the layout here.
+
+    On screen width 1920px rem should be 10px.
+    On screen width 375px it also should be 10px.
+
+------------------------------------------------------ */
+
+@include media-min-desktop {
+
+    html {
+        font-size: 10px;
+    }
+
+    @media (max-width: 1850px) {
+
+        html {
+            font-size: 8.2px;
+        }
+    }
+
+    @media (max-width: 1550px) {
+
+        html {
+            font-size: 7px;
+        }
+    }
+
+    @media (max-width: 1250px) {
+
+        html {
+            font-size: 6.5px;
+        }
+    }
+}
+
+
+// On tablets and mobiles user cannot change viewport size therefore here we
+//   may not think about performance and use vw
+@include media-max-tablet {
+
+    html {
+        font-size: calc(12.5px) !important;
+    }
+}
+
+@include media-max-mobile {
+
+    html {
+        font-size: 2.6vw !important;
+    }
+}

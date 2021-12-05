@@ -1,0 +1,39 @@
+@mixin d($color: red, $width: 0.1rem) {
+    box-shadow: 0 0 0 $width $color inset !important;
+    outline: $width solid $color !important;
+}
+
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+
+@mixin margin-lr($left, $right: $left) {
+    margin-right: $right;
+    margin-left: $left;
+}
+
+@mixin margin-tb($top, $bottom: $top) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+
+@mixin padding-lr($left, $right: $left) {
+    padding-right: $right;
+    padding-left: $left;
+}
+
+@mixin padding-tb($top, $bottom: $top) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+
+@mixin flex-centring {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
